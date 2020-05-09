@@ -56,6 +56,7 @@ class Reactor extends Component {
           </div>
           <div className="item">
             <h3> Transport (item) Feature api endpoints. </h3>
+            <h6>NB:: /5eb3079df907b8323cc22d7c == /:id as url param</h6>
             <JSONPretty json={items} theme={agate} />
           </div>
         </section>
