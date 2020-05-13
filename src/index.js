@@ -13,6 +13,8 @@ const startApp = async () => {
 
 document.addEventListener('DOMContentLoaded', startApp);
 
+
+// load react app too
 render(
   <Reactor
   />,

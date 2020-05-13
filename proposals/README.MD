@@ -1,3 +1,26 @@
+About This File
+---------------
+* Introduction
+* Getting Started
+* 
+
+INTRODUCTION
+------------
+Please check readme on the root of this repo to learn more about the project.
+
+GETTING STARTED
+---------------
+* After installing project dependencies, some commands have changed and include;
+    `yarn dev` to run the dev server(compiler) for front end and `yarn build` to build
+    a production bundle.
+    `yarn start`, starts our api endpoints(backend) and also loads the compiled static files from
+    above on the home page.
+* index.js file located on the root of the project folder instantiates the server(backend) located in
+the backend folder.
+
+IGNORE BELOW INFO FOR NOW
+-------------------------
+
 #Proposed workflow(data) for ___ app
 
 FEATURES

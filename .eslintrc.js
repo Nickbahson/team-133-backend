@@ -1,4 +1,4 @@
-/*module.exports = {
+module.exports = {
   env: {
     browser: true,
     es6: true,
@@ -19,4 +19,4 @@
     'no-param-reassign': ['error', { props: false }]
   }
 };
-*/
+

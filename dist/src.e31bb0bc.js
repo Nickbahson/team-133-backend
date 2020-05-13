@@ -32145,7 +32145,7 @@ class Reactor extends _react.Component {
       theme: _themes.agate
     })), /*#__PURE__*/_react.default.createElement("div", {
       className: "item"
-    }, /*#__PURE__*/_react.default.createElement("h3", null, " Transport (item) api endpoints. "), /*#__PURE__*/_react.default.createElement(_reactJsonPrettify.default, {
+    }, /*#__PURE__*/_react.default.createElement("h3", null, " Transport (item) Feature api endpoints. "), /*#__PURE__*/_react.default.createElement("h6", null, "NB:: /5eb3079df907b8323cc22d7c == /:id as url param"), /*#__PURE__*/_react.default.createElement(_reactJsonPrettify.default, {
       json: items,
       theme: _themes.agate
     }))));
@@ -32179,7 +32179,8 @@ const startApp = async () => {
   header.textContent = programName;
 };
 
-document.addEventListener('DOMContentLoaded', startApp);
+document.addEventListener('DOMContentLoaded', startApp); // load react app too
+
 (0, _reactDom.render)( /*#__PURE__*/_react.default.createElement(_Reactor.default, null), document.getElementById('team'));
 },{"./app":"app.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./react/Reactor":"react/Reactor.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -32209,7 +32210,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51468" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52859" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
