@@ -1,4 +1,4 @@
-const express = require('express');
+/* const express = require('express');
 
 const router = express.Router();
 
@@ -25,4 +25,4 @@ router.post('/', (req, res) => {
   res.json(user);
 });
 
-module.exports = router;
+module.exports = router */

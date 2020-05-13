@@ -1,9 +1,8 @@
-const { Transport } = require('../../database/models/Transport')
 const mongoose = require('mongoose');
 const express = require('express');
+const { Transport } = require('../../database/models/Transport');
 
 const router = express.Router();
-
 
 
 // all transport listing TODO:: paginate
@@ -11,10 +10,10 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   // TODO sort by query:: need a search service
 
-  const pageNumber = 1
-  const pageSize = 100
+  const pageNumber = 1;
+  const pageSize = 100;
 
-  /*const transport = await Transport
+  /* const transport = await Transport
     .find({ isPublished: true })
     .skip((pageNumber -1) * pageSize)
     .limit(pageSize)
@@ -25,33 +24,33 @@ router.get('/', async (req, res) => {
       description: 1,
       details: 1,
       images: 1,
-    });*/
+    }); */
 
   const transport = await Transport
     .find({ isPublished: true })
-    .skip((pageNumber -1) * pageSize)
+    .skip((pageNumber - 1) * pageSize)
     .limit(pageSize)
-    .sort({title: 1})
+    .sort({ title: 1 });
 
-  res.json(transport)
+  res.json(transport);
 });
 
 // loads a single item given an id
 router.get('/:id', async (req, res) => {
-  const { id } = req.params
+  const { id } = req.params;
 
-  const transport = await Transport.findOne({ _id: id })
+  const transport = await Transport.findOne({ _id: id });
 
-  //console.log(transport)
+  // console.log(transport)
 
-  res.json(transport)
+  res.json(transport);
 });
 
 // post rq create a transport item
 router.post('/', async (req, res) => {
   const { body: item } = req; // TODO:: validate item
 
-  /*{
+  /* {
     "title": "Test this toom,nmhjghjghkjgkjgjkgkjgjkgjkg",
     "owner": "103",
     "categories": ["One", "Two"],
@@ -59,43 +58,42 @@ router.post('/', async (req, res) => {
     "details": "andress",
     "images":["imgId1", "imgId2"] ,
     "isPublished": true
-  }*/
+  } */
 
-  let transport = new Transport(item)
+  let transport = new Transport(item);
 
-  transport = await transport.save()
+  transport = await transport.save();
 
   res.json(transport);
 });
 
 // update transport item
 router.put('/:id', async (req, res) => {
-  const { body: item, params } = req
-  const { id } = params
+  const { body: item, params } = req;
+  const { id } = params;
 
-  //console.log(id)
-  //console.log(item)
-  //no item with id
+  // console.log(id)
+  // console.log(item)
+  // no item with id
   // TODO :: validate
 
-  const transport = await Transport.findByIdAndUpdate(id,{
-      $set: item
-    }, { new: true })
+  const transport = await Transport.findByIdAndUpdate(id, {
+    $set: item
+  }, { new: true });
 
-  //console.log(transport)
+  // console.log(transport)
   res.json(transport);
-})
+});
 
 // delete transport item
 router.delete('/:id', async (req, res) => {
-  const { id } = req.params
+  const { id } = req.params;
 
   const transport = await Transport.findByIdAndRemove(id);
 
-  console.log(transport)
+  console.log(transport);
   // TODO :: Redirect many
-  res.json(transport)
-
-})
+  res.json(transport);
+});
 
 module.exports = router;
