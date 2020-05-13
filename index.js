@@ -1,7 +1,5 @@
 
-// backend app at ./backend folder
-
+// backend app at ./backend
 // TODO:: failing tests on jsx
 // initialize server
-require('./backend/server')
-
+require('./backend/server');

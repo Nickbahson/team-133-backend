@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
 
 // post rq create a transport item
 router.post('/', async (req, res) => {
-  const { body } = req; // TODO:: validate item
+  // const { body } = req; // TODO:: validate item
 
   /* {
     "title": "Test this toom,nmhjghjghkjgkjgjkgkjgjkgjkg",
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
     "isPublished": true
   } */
 
-  let transport = new Transport(body);
+  let transport = new Transport(req.body);
 
   transport = await transport.save();
 
@@ -69,16 +69,16 @@ router.post('/', async (req, res) => {
 
 // update transport item
 router.put('/:id', async (req, res) => {
-  const { body , params } = req;
-  const { id } = params;
+  // const { body, params } = req;
+  // const { id } = params;
 
   // console.log(id)
   // console.log(item)
   // no item with id
   // TODO :: validate
 
-  const transport = await Transport.findByIdAndUpdate(id, {
-    $set: body
+  const transport = await Transport.findByIdAndUpdate(req.params.id, {
+    $set: req.body
   }, { new: true });
 
   // console.log(transport)
