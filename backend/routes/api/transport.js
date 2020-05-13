@@ -37,9 +37,9 @@ router.get('/', async (req, res) => {
 
 // loads a single item given an id
 router.get('/:id', async (req, res) => {
-  const { id } = req.params;
+  // const { id } = req.params;
 
-  const transport = await Transport.findOne({ _id: id });
+  const transport = await Transport.findOne({ _id: req.params.id });
 
   // console.log(transport)
 
