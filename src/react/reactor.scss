@@ -17,17 +17,16 @@
   }
 
   section {
-
     display: grid;
     margin: 1em;
     padding: 1em;
 
     .item {
-      margin: .5em;
+      margin: 0.5em;
 
       h3,
       span {
-        margin: .4em;
+        margin: 0.4em;
       }
     }
   }

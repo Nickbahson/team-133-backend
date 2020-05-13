@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+
 const express = require('express');
 const { Transport } = require('../../database/models/Transport');
 
@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
 
 // post rq create a transport item
 router.post('/', async (req, res) => {
-  const { body: item } = req; // TODO:: validate item
+  const { body } = req; // TODO:: validate item
 
   /* {
     "title": "Test this toom,nmhjghjghkjgkjgjkgkjgjkgjkg",
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
     "isPublished": true
   } */
 
-  let transport = new Transport(item);
+  let transport = new Transport(body);
 
   transport = await transport.save();
 
@@ -69,7 +69,7 @@ router.post('/', async (req, res) => {
 
 // update transport item
 router.put('/:id', async (req, res) => {
-  const { body: item, params } = req;
+  const { body , params } = req;
   const { id } = params;
 
   // console.log(id)
@@ -78,7 +78,7 @@ router.put('/:id', async (req, res) => {
   // TODO :: validate
 
   const transport = await Transport.findByIdAndUpdate(id, {
-    $set: item
+    $set: body
   }, { new: true });
 
   // console.log(transport)
@@ -87,11 +87,11 @@ router.put('/:id', async (req, res) => {
 
 // delete transport item
 router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
+  // const { id } = req.params;
 
-  const transport = await Transport.findByIdAndRemove(id);
+  const transport = await Transport.findByIdAndRemove(req.params);
 
-  console.log(transport);
+  // console.log(transport);
   // TODO :: Redirect many
   res.json(transport);
 });

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
-const error = require('./middleware/error');
-const accessValidator = require('./middleware/accessValidator');
+// const error = require('./middleware/error');
+// const accessValidator = require('./middleware/accessValidator');
 
 const app = express();
 
@@ -16,8 +16,9 @@ mongoose.connect(
     useFindAndModify: false
   }
 )
-  .then(() => console.log('Connected to Db...'))
-  .catch((err) => console.log('Could not connect to Mongo db'));
+  .then(() => {});
+// .then(() => console.log('Connected to Db...'))
+// .catch((err) => console.log(`Could not connect to Mongo db${err}`));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,7 +41,7 @@ require('./settings/prod')(app); // TODO :: only on prod
 const port = process.env.PORT || 3000;
 
 const server = app.listen(port, () => {
-  console.log('app open on port :::::: ', port);
+  // console.log('app open on port :::::: ', port);
 });
 
 // export the server object
